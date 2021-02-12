@@ -46,9 +46,7 @@ request(url).then(function(html){
 
         }
         
-
-
-        var jsondata = {
+        var currentjson = {
           'url': url+result,
           'title': title,
           'author': author_name,
@@ -56,9 +54,13 @@ request(url).then(function(html){
           'related_article': related,
 
         }
-        console.log(jsondata);
-        var data = JSON.stringify(jsondata,null,4);
-        fs.writeFileSync('article-data.json',data);
+        console.log(currentjson);
+
+        
+        
+
+        var data = JSON.stringify(currentjson,null,4);
+        fs.appendFileSync('solution.json',data);
       })
     })
 })
